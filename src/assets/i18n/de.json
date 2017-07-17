@@ -1,5 +1,7 @@
 {
-  "VERSION": "Version",
-  "SYNCHRONIZED": "Synchronisiert",
-  "DOCUMNETS": "Dokumente"
+  "VERSION":"Version",
+  "SYNCHRONIZED":"Synchronisiert",
+  "DOCUMENTS":"Dokumente",
+  "TASKS":"Aufgaben",
+  "OBJECTS":"Objekte"
 }

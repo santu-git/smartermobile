@@ -1,3 +1,4 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -13,8 +14,9 @@ import { Globalization } from '@ionic-native/globalization'
 
 import { defaultLanguage, availableLanguages, sysOptions } from './i18.constants';
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { TasksPage } from './../pages/tasks/tasks';
+import { ObjectsPage } from './../pages/objects/objects';
+import { DocumentsPage } from './../pages/documents/documents';
 import { SettingsPage } from './../pages/settings/settings';
 
 @Component({
@@ -23,7 +25,7 @@ import { SettingsPage } from './../pages/settings/settings';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = TasksPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -32,8 +34,9 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
+      { title: 'TASKS', component: TasksPage },
+      { title: 'OBJECTS', component: ObjectsPage },
+      { title: 'DOCUMENTS', component: DocumentsPage },
     ];
 
   }

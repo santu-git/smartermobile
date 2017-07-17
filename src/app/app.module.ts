@@ -10,9 +10,11 @@ import { TranslateLoader, TranslateStaticLoader} from 'ng2-translate/src/transla
 // Import Globalization to obtain user's device language.
 import { Globalization } from '@ionic-native/globalization'
 
+// Import pages
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { TasksPage } from './../pages/tasks/tasks';
+import { ObjectsPage } from './../pages/objects/objects';
+import { DocumentsPage } from './../pages/documents/documents';
 import { SettingsPage } from './../pages/settings/settings';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,8 +28,9 @@ export function createTranslateLoader(http: Http){
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    ListPage,
+    TasksPage,
+    ObjectsPage,
+    DocumentsPage,
     SettingsPage
   ],
   imports: [
@@ -42,8 +45,9 @@ export function createTranslateLoader(http: Http){
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    ListPage,
+    TasksPage,
+    ObjectsPage,
+    DocumentsPage,
     SettingsPage
   ],
   providers: [

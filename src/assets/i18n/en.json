@@ -1,5 +1,7 @@
 {
   "VERSION":"Version",
   "SYNCHRONIZED":"Synchronized",
-  "DOCUMNETS":"Documents"
+  "DOCUMENTS":"Documents",
+  "TASKS":"Tasks",
+  "OBJECTS":"Objects"
 }

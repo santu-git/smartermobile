@@ -18,9 +18,9 @@ import { TranslateService } from "ng2-translate";
 })
 export class SettingsPage {
   private languages = availableLanguages;
-  private myLanguage = null;
+  private myLanguage = sysOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams, private translate: TranslateService) {
-    this.languages = availableLanguages;
+    //this.languages = availableLanguages;
   }
 
   ionViewDidLoad() {
@@ -29,6 +29,7 @@ export class SettingsPage {
 
   applyLanguage(lang){
     this.translate.use(lang);
+    sysOptions.systemLanguage = lang;
   }
 
 }

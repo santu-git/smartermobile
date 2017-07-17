@@ -27,7 +27,7 @@
       <ion-note item-end>16.07.2017 23:54</ion-note>
     </ion-item>
     <ion-item>
-      {{ 'DOCUMNETS' | translate }}
+      {{ 'DOCUMENTS' | translate }}
       <ion-note item-end>1/1 geladen</ion-note>
     </ion-item>
   </ion-list>
@@ -36,7 +36,7 @@
      <ion-item>
         <ion-label>Language</ion-label>
         <ion-select #myLang (ionChange)="applyLanguage(myLang.value)">
-          <ion-option *ngFor="let lang of languages" [value]="lang.code">{{lang.name}}</ion-option>
+          <ion-option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.code==myLanguage.systemLanguage">{{lang.name}}</ion-option>
         </ion-select>
     </ion-item> 
   </ion-list>
