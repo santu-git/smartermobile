@@ -1,3 +1,4 @@
+import { TasksPage } from './../tasks/tasks';
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -36,9 +37,9 @@ export class LoginPage {
     this._authService.login(loginData).subscribe(
       success=>{
         if(success.logged_in){
-
+          this.navCtrl.setRoot(TasksPage)
         }else{
-
+          
         }
       },
       error=>{

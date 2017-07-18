@@ -1,3 +1,4 @@
+import { AuthenticationProvider } from './../providers/authentication/authentication';
 
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -28,17 +29,20 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private translate: TranslateService, private globalization: Globalization) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'TASKS', component: TasksPage },
-      { title: 'OBJECTS', component: ObjectsPage },
-      { title: 'DOCUMENTS', component: DocumentsPage },
+      { title: 'TASKS', component: TasksPage, icon: 'list-box' },
+      { title: 'OBJECTS', component: ObjectsPage, icon: 'cube' },
+      { title: 'DOCUMENTS', component: DocumentsPage, icon: 'folder-open' },
     ];
+    if(AuthenticationProvider.isAuthorized()){
+      this.rootPage = TasksPage;
+    };
 
   }
 
@@ -83,5 +87,10 @@ export class MyApp {
 
   openSettingsPage(){
     this.nav.push(SettingsPage)
+  }
+
+  doLogout(){
+    AuthenticationProvider.logout();
+    this.nav.setRoot(LoginPage);
   }
 }

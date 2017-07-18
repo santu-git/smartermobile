@@ -4,9 +4,14 @@
   "DOCUMENTS":"Dokumente",
   "TASKS":"Aufgaben",
   "OBJECTS":"Objekte",
-  "LOGIN": "Anmeldung",
+  "SETTINGS":"Einstellungen",
+  "SIGN_OUT":"Abmelden",
+  "SIGN_IN": "Anmelden",
   "USER": "Benutzer",
   "PASSWORD": "Kennwort",
   "USERNAME_REQUIRED": "Benutzer erforderlich",
-  "PASSWORD_REQUIRED": "Kennwort erforderlich"
+  "PASSWORD_REQUIRED": "Kennwort erforderlich",
+  "LOGIN_SUCCESS":"Erfolgreich angemeldet",
+  "LOGIN_ERROR": "Benutzer oder Kennwort ungültig",
+  "SERVER_ERROR": "Etwas Unrecht passiert!"
 }

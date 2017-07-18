@@ -33,7 +33,8 @@ export class AuthenticationProvider {
   }
 
   private processLoginResponse(data: Response){
-    if(data.status==200){
+    if(data.status==200){ 
+      window.localStorage.setItem('sm_user',JSON.stringify(data.json()));
       return {logged_in: true, i18n_message: "LOGIN_SUCCESS"}
     }else{
       return {logged_in: false, i18n_message: "SERVER_ERROR"}
@@ -48,5 +49,14 @@ export class AuthenticationProvider {
       return Observable.throw({logged_in: false, i18n_message: "SERVER_ERROR", response_message: error._body})
     }
     
+  }
+
+  static logout(){
+    window.localStorage.removeItem('sm_user');
+    return true;
+  }
+
+  static isAuthorized(): boolean {
+    return !!window.localStorage.getItem('sm_user');
   }
 }
