@@ -1,0 +1,28 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+  <form [formGroup]="loginForm" (ngSubmit)="doLogin(loginForm.value)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>{{ 'USER' | translate}}</ion-label>
+        <ion-input type="text" [formControl]="loginForm.controls['username']"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="loginForm.controls.username.invalid && (loginForm.controls.username.dirty ||loginForm.controls.username.touched)">
+        <p class='error-message'>{{ 'USERNAME_REQUIRED' | translate }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'PASSWORD' | translate}}</ion-label>
+        <ion-input type="password" [formControl]="loginForm.controls['password']"></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+        <p class='error-message'>{{ 'PASSWORD_REQUIRED' | translate }}</p>
+      </ion-item>
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!loginForm.valid">{{ 'LOGIN' | translate }}</button>
+  </form>
+
+</ion-content>

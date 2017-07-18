@@ -3,5 +3,10 @@
   "SYNCHRONIZED":"Synchronized",
   "DOCUMENTS":"Documents",
   "TASKS":"Tasks",
-  "OBJECTS":"Objects"
+  "OBJECTS":"Objects",
+  "LOGIN": "Login",
+  "USER" : "Username",
+  "PASSWORD": "Password",
+  "USERNAME_REQUIRED": " Username required",
+  "PASSWORD_REQUIRED": "Password required"
 }

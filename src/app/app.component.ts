@@ -14,6 +14,7 @@ import { Globalization } from '@ionic-native/globalization'
 
 import { defaultLanguage, availableLanguages, sysOptions } from './i18.constants';
 
+import { LoginPage } from './../pages/login/login';
 import { TasksPage } from './../pages/tasks/tasks';
 import { ObjectsPage } from './../pages/objects/objects';
 import { DocumentsPage } from './../pages/documents/documents';
@@ -25,7 +26,7 @@ import { SettingsPage } from './../pages/settings/settings';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TasksPage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -53,12 +54,20 @@ export class MyApp {
 
   setLanguage(){
     this.translate.setDefaultLang(defaultLanguage);
-    this.globalization.getPreferredLanguage()
+    if((<any>window).cordova){
+      this.globalization.getPreferredLanguage()
       .then(res=>{
         var language = this.getSuitableLanguage(res.value);
         this.translate.use(language);
         sysOptions.systemLanguage = language;
       })
+    }else{
+      let browserLanguage = this.translate.getBrowserLang() || defaultLanguage;
+			var language = this.getSuitableLanguage(browserLanguage);
+			this.translate.use(language);
+			sysOptions.systemLanguage = language;
+    }
+    
   }
 
   private getSuitableLanguage(language){

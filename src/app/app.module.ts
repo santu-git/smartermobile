@@ -12,6 +12,7 @@ import { Globalization } from '@ionic-native/globalization'
 
 // Import pages
 import { MyApp } from './app.component';
+import { LoginPage } from './../pages/login/login';
 import { TasksPage } from './../pages/tasks/tasks';
 import { ObjectsPage } from './../pages/objects/objects';
 import { DocumentsPage } from './../pages/documents/documents';
@@ -28,6 +29,7 @@ export function createTranslateLoader(http: Http){
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     TasksPage,
     ObjectsPage,
     DocumentsPage,
@@ -45,6 +47,7 @@ export function createTranslateLoader(http: Http){
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     TasksPage,
     ObjectsPage,
     DocumentsPage,
