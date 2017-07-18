@@ -8,5 +8,8 @@
   "USER" : "Username",
   "PASSWORD": "Password",
   "USERNAME_REQUIRED": " Username required",
-  "PASSWORD_REQUIRED": "Password required"
+  "PASSWORD_REQUIRED": "Password required",
+  "LOGIN_SUCCESS":"Successfully Logged in",
+  "LOGIN_ERROR": "Invalid username or password",
+  "SERVER_ERROR": "Something wrong happen !"
 }

@@ -21,6 +21,9 @@ import { SettingsPage } from './../pages/settings/settings';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { QueryParamsBuilder } from './../providers/authentication/query-params';
+
 //Override TranslateLoader for language path file (must declare before @NgModule)
 export function createTranslateLoader(http: Http){
   return new TranslateStaticLoader(http, 'assets/i18n', '.json');
@@ -33,7 +36,7 @@ export function createTranslateLoader(http: Http){
     TasksPage,
     ObjectsPage,
     DocumentsPage,
-    SettingsPage
+    SettingsPage,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,9 @@ export function createTranslateLoader(http: Http){
     StatusBar,
     SplashScreen,
     Globalization,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthenticationProvider,
+    QueryParamsBuilder,
   ]
 })
 
