@@ -44,9 +44,9 @@ export class AuthenticationProvider {
 
   private handleError(error: any){
     if(error.status== 401){
-      return Observable.throw({logged_in: false, i18n_message: "LOGIN_ERROR", response_message: error._body})
+      return Observable.throw({logged_in: false, i18n_message: "LOGIN_ERROR", response_message: JSON.parse(error._body)})
     }else{
-      return Observable.throw({logged_in: false, i18n_message: "SERVER_ERROR", response_message: error._body})
+      return Observable.throw({logged_in: false, i18n_message: "SERVER_ERROR", response_message: JSON.parse(error._body)})
     }
     
   }
@@ -59,4 +59,5 @@ export class AuthenticationProvider {
   static isAuthorized(): boolean {
     return !!window.localStorage.getItem('sm_user');
   }
+  
 }

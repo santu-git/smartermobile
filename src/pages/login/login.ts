@@ -19,7 +19,8 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
 })
 export class LoginPage {
   private loginForm: FormGroup;
-
+  private loginData: any;
+  private show = false;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -34,16 +35,21 @@ export class LoginPage {
   }
   
   doLogin(loginData){
+    this.loginData = null;
+    this.loginForm.markAsPristine();
+    this.loginForm.markAsUntouched();
     this._authService.login(loginData).subscribe(
       success=>{
         if(success.logged_in){
+          this.loginData = success;
           this.navCtrl.setRoot(TasksPage)
         }else{
-          
+          this.loginData = success;
         }
       },
       error=>{
-        
+        console.log(error)
+        this.loginData = error;
       });
   }
 }

@@ -23,6 +23,10 @@
       </ion-item>
     </ion-list>
     <button ion-button block type="submit" [disabled]="!loginForm.valid">{{ 'SIGN_IN' | translate }}</button>
+    
   </form>
-
+  <ul [hidden]="loginForm.dirty" *ngIf="loginData" class="error-message">
+    <li>{{ loginData.i18n_message | translate }}</li>
+    <li *ngIf="loginData.hasOwnProperty('response_message')">{{loginData.response_message}}</li>
+  </ul>
 </ion-content>
