@@ -17,27 +17,33 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-        {{ 'VERSION' | translate }}
-        <ion-note item-end>{{app_version}}</ion-note>
-    </ion-item>
-    <ion-item>
-      {{ 'SYNCHRONIZED' | translate }}
-      <ion-note item-end>16.07.2017 23:54</ion-note>
-    </ion-item>
-    <ion-item>
-      {{ 'DOCUMENTS' | translate }}
-      <ion-note item-end>1/1 geladen</ion-note>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-6 offset-xl-3> 
+        <ion-list>
+          <ion-item>
+              {{ 'VERSION' | translate }}
+              <ion-note item-end>{{app_version}}</ion-note>
+          </ion-item>
+          <ion-item>
+            {{ 'SYNCHRONIZED' | translate }}
+            <ion-note item-end>16.07.2017 23:54</ion-note>
+          </ion-item>
+          <ion-item>
+            {{ 'DOCUMENTS' | translate }}
+            <ion-note item-end>1/1 geladen</ion-note>
+          </ion-item>
+        </ion-list>
 
-  <ion-list>
-     <ion-item>
-        <ion-label>Language</ion-label>
-        <ion-select #myLang (ionChange)="applyLanguage(myLang.value)">
-          <ion-option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.code==myLanguage.systemLanguage">{{lang.name}}</ion-option>
-        </ion-select>
-    </ion-item> 
-  </ion-list>
+        <ion-list>
+          <ion-item>
+              <ion-label>Language</ion-label>
+              <ion-select #myLang (ionChange)="applyLanguage(myLang.value)">
+                <ion-option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.code==myLanguage.systemLanguage">{{lang.name}}</ion-option>
+              </ion-select>
+          </ion-item> 
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
