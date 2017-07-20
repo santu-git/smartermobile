@@ -38,15 +38,13 @@ export class SettingsPage {
     this.translate.use(lang);
     sysOptions.systemLanguage = lang;
   }
-
-  getAppVersion(){
-    this.app.getVersionNumber()
-      .then((data)=>{
-        this.app_version = data;
-      })
-      .catch((error)=>{
-        console.log (error)
-      })
+  
+  async getAppVersion(){
+    try{
+      this.app_version = await this.app.getVersionNumber();
+    }catch(err){
+      console.log(err);
+    }
   }
 
 }
