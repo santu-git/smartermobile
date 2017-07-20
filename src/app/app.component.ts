@@ -21,6 +21,8 @@ import { ObjectsPage } from './../pages/objects/objects';
 import { DocumentsPage } from './../pages/documents/documents';
 import { SettingsPage } from './../pages/settings/settings';
 
+import { Events } from 'ionic-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -38,20 +40,22 @@ export class MyApp {
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen, 
     private translate: TranslateService, 
-    private globalization: Globalization) {
-    this.initializeApp();
+    private globalization: Globalization,
+    public events: Events) {
+      events.subscribe('user:loggedin', () => {
+        this.currentUser = AuthenticationProvider.currentUser();
+      });
+      this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'TASKS', component: TasksPage, icon: 'list-box' },
-      { title: 'OBJECTS', component: ObjectsPage, icon: 'cube' },
-      { title: 'DOCUMENTS', component: DocumentsPage, icon: 'folder-open' },
-    ];
-    if(AuthenticationProvider.isAuthorized()){
-      this.rootPage = TasksPage;
-      this.currentUser = AuthenticationProvider.currentUser();
-      console.log("CurrentUser");
-      console.log(this.currentUser);
+      // used for an example of ngFor and navigation
+      this.pages = [
+        { title: 'TASKS', component: TasksPage, icon: 'list-box' },
+        { title: 'OBJECTS', component: ObjectsPage, icon: 'cube' },
+        { title: 'DOCUMENTS', component: DocumentsPage, icon: 'folder-open' },
+      ];
+      if(AuthenticationProvider.isAuthorized()){
+        this.rootPage = TasksPage;
+        this.currentUser = AuthenticationProvider.currentUser();
     };
   }
 

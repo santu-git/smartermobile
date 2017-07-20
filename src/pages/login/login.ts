@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
+import { Events } from 'ionic-angular';
 /**
  * Generated class for the LoginPage page.
  *
@@ -27,7 +28,8 @@ export class LoginPage {
     public navParams: NavParams, 
     private formBuilder: FormBuilder,
     private _authService: AuthenticationProvider,
-    private loadingCtrl: LoadingController) {
+    private loadingCtrl: LoadingController,
+    public events: Events) {
     
       this.loginForm = formBuilder.group({
       'username': [null, Validators.required],
@@ -46,6 +48,7 @@ export class LoginPage {
         this.hideLoader();
         if(success.logged_in){
           this.loginData = success;
+          this.events.publish('user:loggedin');
           this.navCtrl.setRoot(TasksPage)
         }else{
           this.loginData = success;

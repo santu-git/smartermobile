@@ -5,10 +5,10 @@
       <ion-list no-lines>
         <ion-item>
           <ion-avatar item-left>
-            <img  src="assets/images/logo-s.png" style="width:55px;height:55px;"/>
+            <img  *ngIf="currentUser" src="assets/images/logo-s.png" style="width:55px;height:55px;"/>
           </ion-avatar>
-           <h2 ><b>{{currentUser.name}}</b></h2> 
-          <h3>{{currentUser.mandant}}</h3>
+          <h2 *ngIf="currentUser" ><b>{{currentUser.name}}</b></h2> 
+          <h3 *ngIf="currentUser">{{currentUser.mandant}}</h3> 
         </ion-item>
         </ion-list>
     <!-- </ion-toolbar> -->
