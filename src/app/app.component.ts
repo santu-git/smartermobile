@@ -27,6 +27,8 @@ import { SettingsPage } from './../pages/settings/settings';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  private currentUser: any;
+
   rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any, icon: string}>;
@@ -47,8 +49,10 @@ export class MyApp {
     ];
     if(AuthenticationProvider.isAuthorized()){
       this.rootPage = TasksPage;
+      this.currentUser = AuthenticationProvider.currentUser();
+      console.log("CurrentUser");
+      console.log(this.currentUser);
     };
-
   }
 
   initializeApp() {
@@ -58,6 +62,9 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.setLanguage()
+      
+      
+
     });
   }
 

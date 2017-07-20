@@ -59,5 +59,9 @@ export class AuthenticationProvider {
   static isAuthorized(): boolean {
     return !!window.localStorage.getItem('sm_user');
   }
+
+  static currentUser(){
+    return JSON.parse(window.localStorage.getItem('sm_user'));
+  }
   
 }
