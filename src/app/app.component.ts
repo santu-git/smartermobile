@@ -31,7 +31,12 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private translate: TranslateService, private globalization: Globalization) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen, 
+    private translate: TranslateService, 
+    private globalization: Globalization) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
