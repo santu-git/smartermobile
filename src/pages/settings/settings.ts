@@ -1,3 +1,4 @@
+import { AppVersion } from '@ionic-native/app-version';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -19,8 +20,14 @@ import { TranslateService } from "ng2-translate";
 export class SettingsPage {
   private languages = availableLanguages;
   private myLanguage = sysOptions;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private translate: TranslateService) {
+  private app_version: any;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private translate: TranslateService,
+    private app: AppVersion) {
     //this.languages = availableLanguages;
+    this.getAppVersion();
   }
 
   ionViewDidLoad() {
@@ -30,6 +37,16 @@ export class SettingsPage {
   applyLanguage(lang){
     this.translate.use(lang);
     sysOptions.systemLanguage = lang;
+  }
+
+  getAppVersion(){
+    this.app.getVersionNumber()
+      .then((data)=>{
+        this.app_version = data;
+      })
+      .catch((error)=>{
+        console.log (error)
+      })
   }
 
 }

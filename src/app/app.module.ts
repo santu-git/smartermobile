@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { AppVersion } from '@ionic-native/app-version'
 
 // Import ng2-translate modules for multilingual support
 import { TranslateModule } from 'ng2-translate/ng2-translate';
@@ -63,6 +64,7 @@ export function createTranslateLoader(http: Http){
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthenticationProvider,
     QueryParamsBuilder,
+    AppVersion
   ]
 })
 
