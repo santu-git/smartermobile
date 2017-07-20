@@ -1,26 +1,101 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+SMARTERMOBILE App
+=====================
 
-## How to use this template
+Description Here
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## Using this project
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+Checkout project from repository
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start mySideMenu sidemenu
+$ git clone https://sdm-sky@bitbucket.org/sm3team/sm3-client.git
+```
+Install node packages
+```bash
+$ npm install
 ```
 
-Then, to run it, cd into `mySideMenu` and run:
+Add platforms
 
 ```bash
+$ ionic cordova platform add android
 $ ionic cordova platform add ios
-$ ionic cordova run ios
 ```
 
-Substitute ios for android if not on a Mac.
+Install required plugins listed in package.json
 
+```bash
+$ ionic state restore --plugins
+```
+
+OR
+
+```bash
+$ cordova state restore --plugins
+```
+
+Build project(Dev Mode)
+
+```bash
+$ ionic cordova build android
+$ ionic cordova build ios
+```
+
+Build project(Prod Mode)
+
+```bash
+$ ionic cordova build android --prod
+$ ionic cordova build ios --prod
+```
+
+Run on browser (app view)
+
+```bash
+$ ionic serve --lcs
+```
+
+Run on browser (web view)
+
+```bash
+$ ionic serve
+```
+
+Run your app on emulator
+
+```bash
+$ ionic cordova emulate android
+$ ionic cordova emulate ios
+```
+Run your app on android device in 
+```bash
+$ ionic cordova run android --livereload -cs
+```
+
+Only remove all installed plugins
+
+```bash
+$ ionic state clear -- plugins
+```
+
+Remove all then Install all plugins in package.json
+
+```bash
+$ ionic state reset -- plugins
+```
+
+Install a particular cordova plugin
+
+```bash
+$ ionic cordova plugin add <plugin-id>
+$ ionic cordova plugin add <git https url>
+```
+
+Install a particular js library
+
+```bash
+$ npm install <lib name> --save
+```
+
+Preview app in Ionic View (Without installing .apk)
+- Install Ionic View app from https://play.google.com/store/apps/details?id=com.ionic.viewapp
+- APP ID 845a35e2 
