@@ -58,7 +58,7 @@ export class MyApp {
 
   setLanguage(){
     this.translate.setDefaultLang(defaultLanguage);
-    if((<any>window).cordova){
+    if(this.platform.is('cordova')){
       this.globalization.getPreferredLanguage()
       .then(res=>{
         var language = this.getSuitableLanguage(res.value);
