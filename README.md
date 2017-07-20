@@ -71,7 +71,7 @@ Run your app on android device in
 $ ionic cordova run android --livereload -cs
 ```
 
-Only remove all installed plugins
+Remove all installed plugins
 
 ```bash
 $ ionic state clear -- plugins
